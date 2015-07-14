@@ -1,0 +1,13 @@
+name: PlayerPrivacy
+main: _64FF00\xSudo\xSudo
+version: 1.0.0
+api: [1.0.0]
+load: STARTUP
+author: nao20010128nao
+description: A few tools contained
+website: https://github.com/nao20010128nao
+permissions:
+ pp.*:
+  children:
+   pp.all:
+    description: ""
