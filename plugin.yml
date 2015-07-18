@@ -1,6 +1,6 @@
 name: PlayerPrivacy
 main: _64FF00\xSudo\xSudo
-version: 1.0.0
+version: 1.0.1
 api: [1.0.0]
 load: STARTUP
 author: nao20010128nao

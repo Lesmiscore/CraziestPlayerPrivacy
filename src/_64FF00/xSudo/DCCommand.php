@@ -44,11 +44,11 @@ class DCCommand extends Command implements PluginIdentifiableCommand
 		$player=strtolower($player);
 		switch($args[0]){
 			case "add":
-				$this->plugin->denyCommand=array_merge($this->plugin->denyChat,array($player=>1));
+				$this->plugin->denyCommand=array_merge($this->plugin->denyCommand,array($player=>1));
 				$sender->sendMessage(TextFormat::GREEN."Added ".$player." into Deny Command List.");
 				break;
 			case "remove":
-				$this->plugin->denyCommand=array_diff_key($this->plugin->denyChat,array($player=>1));
+				$this->plugin->denyCommand=array_diff_key($this->plugin->denyCommand,array($player=>1));
 				$sender->sendMessage(TextFormat::GREEN."Removed ".$player." from Deny Command List.");
 				break;
 		}

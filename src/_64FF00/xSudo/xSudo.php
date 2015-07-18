@@ -40,11 +40,11 @@ class xSudo extends PluginBase implements Listener
 		$commandMap = $this->getServer()->getCommandMap();
 		$commandMap->register(
 			"remote", 
-			$rcmd=new xSudoCommand($this, "remote", "Allows you to run commands as console or someone else.")
+			new xSudoCommand($this, "remote", "Allows you to run commands as console or someone else.")
 		);
 		$commandMap->register(
 			"rcmd", 
-			$rcmd
+			new xSudoCommand($this, "rcmd", "Allows you to run commands as console or someone else.")
 		);
 		$commandMap->register(
 			"pd", 
