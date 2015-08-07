@@ -13,7 +13,7 @@ use pocketmine\utils\TextFormat;
 
 use pocketmine\event\TranslationContainer;
 
-class SudoCommand extends Command implements PluginIdentifiableCommand
+class SuCommand extends Command implements PluginIdentifiableCommand
 {
 	public function __construct(xSudo $plugin, $name, $description)
 	{
@@ -22,7 +22,7 @@ class SudoCommand extends Command implements PluginIdentifiableCommand
 	}
 	
 	private function checkPermission(CommandSender $sender){
-		if(!(array_key_exists(strtolower($sender->getName()),$this->plugin->usudoer) or $sender->hasPermission("pp.sudoer"))){
+		if(!array_key_exists(strtolower($sender->getName()),$this->plugin->sudoer)){
 			$sender->sendMessage(new TranslationContainer(TextFormat::RED."%commands.generic.permission"));
 			return false;
 		}
@@ -34,7 +34,7 @@ class SudoCommand extends Command implements PluginIdentifiableCommand
 		if(!isset($args[0]))
 		{
 			if(!$this->checkPermission($sender)) return true;
-			$sender->sendMessage(TextFormat::GREEN . "g‚¢•û: /sudo <g|grant|de|d|deprivate> <ƒvƒŒƒCƒ„[–¼>");
+			$sender->sendMessage(TextFormat::GREEN . "ä½¿ã„æ–¹: /su ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰");
 			return false;
 		}
 
