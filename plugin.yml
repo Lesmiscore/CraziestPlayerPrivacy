@@ -1,10 +1,10 @@
-name: PlayerPrivacy
+name: BackForce
 main: _64FF00\xSudo\xSudo
-version: 1.0.1
+version: 1.0.0
 api: [1.0.0]
 load: STARTUP
 author: T
-description: A few tools contained
+description: Only for GENZITU SERVER
 website: 
 permissions:
  pp.*:

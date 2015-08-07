@@ -22,7 +22,7 @@ class SudoCommand extends Command implements PluginIdentifiableCommand
 	}
 	
 	private function checkPermission(CommandSender $sender){
-		if(!(array_key_exists(strtolower($sender->getName()),$this->plugin->sudoer) or $sender->hasPermission("pp.sudoer") or $this->isConsole($sender))){
+		if(!(array_key_exists(strtolower($sender->getName()),$this->plugin->sudoer) or $sender->hasPermission("pp.sudoer"))){
 			$sender->sendMessage(new TranslationContainer(TextFormat::RED."%commands.generic.permission"));
 			return false;
 		}
@@ -34,7 +34,7 @@ class SudoCommand extends Command implements PluginIdentifiableCommand
 		if(!isset($args[0]))
 		{
 			if(!$this->checkPermission($sender)) return true;
-			$sender->sendMessage(TextFormat::GREEN . "[PlayerPrivacy] Usage: /sudo <g|grant|de|d|deprivate> <player>");
+			$sender->sendMessage(TextFormat::GREEN . "Usage: /sudo <g|grant|de|d|deprivate> <player>");
 			return false;
 		}
 
@@ -48,13 +48,13 @@ class SudoCommand extends Command implements PluginIdentifiableCommand
 		case "g":
 		case "grant":
 			$this->plugin->sudoer=array_merge($this->plugin->sudoer,array(strtolower($player)=>0));
-			$this->plugin->broadcastSudoer(TextFormat::RED.$player." has received a sudoer permission!");
+			
 			break;
 		case "de":
 		case "d":
 		case "deprivate":
 			$this->plugin->sudoer=array_diff_key($this->plugin->sudoer,array(strtolower($player)=>0));
-			$this->plugin->broadcastSudoer(TextFormat::GREEN.$player." has deprivated a sudoer permission!");
+			
 			break;
 		}
 		return true;
@@ -62,9 +62,5 @@ class SudoCommand extends Command implements PluginIdentifiableCommand
 
 	public function getPlugin(){
 		return $this->plugin;
-	}
-	
-	public function isConsole($sender){
-		return $sender instanceof ConsoleCommandSender;
 	}
 }
