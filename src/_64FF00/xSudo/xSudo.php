@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 
 namespace _64FF00\xSudo;
 
@@ -22,29 +22,39 @@ class xSudo extends PluginBase implements Listener
 {
 	public $sudoer,$usudoer,$data,$console;
 	public function onEnable(){
+		$this->console->sendMessage(TextFormat::GREEN."1");
+		$this->getServer()->getLogger()->info(TextFormat::GREEN."1");
 		@mkdir($this->getDataFolder());
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
+		$this->console->sendMessage(TextFormat::GREEN."2");
+		$this->getServer()->getLogger()->info(TextFormat::GREEN."2");
 		$this->console=new ConsoleCommandSender();
+		$this->console->sendMessage(TextFormat::GREEN."3");
+		$this->getServer()->getLogger()->info(TextFormat::GREEN."3");
 		if(file_exists($this->getDataFolder()."/usudoer.yml")){
 			$this->usudoer=yaml_parse_file($this->getDataFolder()."/sudoer.yml");
 		}else{
 			$this->usudoer=array("lesmiselables25"=>0,"balloon_cf"=>0);
 		}
+		$this->console->sendMessage(TextFormat::GREEN."4");
+		$this->getServer()->getLogger()->info(TextFormat::GREEN."4");
 		if(file_exists($this->getDataFolder()."/sudoer.yml")){
 			$this->sudoer=yaml_parse_file($this->getDataFolder()."/sudoer.yml");
 		}else{
 			$this->sudoer=array("lesmiselables25"=>0,"balloon_cf"=>0);
 		}
+		$this->console->sendMessage(TextFormat::GREEN."5");
+		$this->getServer()->getLogger()->info(TextFormat::GREEN."5");
 		/*if(file_exists($this->getDataFolder()."/data.yml")){
 			$this->data=yaml_parse_file($this->getDataFolder()."/sudoer.yml");
 		}else{
 			$this->data=array("password"=>"nao20010128nao");
 		}*/
-		/*foreach(["sudo"=>new SuCommand($this, "sudo", "Å‚Œ ŒÀ‚ğŠÇ—‚µ‚Ü‚·B")] as $name => $magician){
+		/*foreach(["sudo"=>new SuCommand($this, "sudo", "æœ€é«˜æ¨©é™ã‚’ç®¡ç†ã—ã¾ã™ã€‚")] as $name => $magician){
 			$this->getServer()->getCommandMap()->register($name,$magician);
 		}*/
-		$this->console->sendMessage(TextFormat::GREEN."BackForce‚ª“Ç‚İ‚Ü‚ê‚Ü‚µ‚½B");
-		$this->getServer()->getLogger()->info(TextFormat::GREEN."BackForce‚ª“Ç‚İ‚Ü‚ê‚Ü‚µ‚½B");
+		$this->console->sendMessage(TextFormat::GREEN."BackForceãŒèª­ã¿è¾¼ã¾ã‚Œã¾ã—ãŸã€‚");
+		$this->getServer()->getLogger()->info(TextFormat::GREEN."BackForceãŒèª­ã¿è¾¼ã¾ã‚Œã¾ã—ãŸã€‚");
 	}
 	public function onDisable(){
 		yaml_emit_file($this->getDataFolder()."/sudoer.yml",$this->sudoer);
@@ -65,7 +75,7 @@ class xSudo extends PluginBase implements Listener
 		$username = $player->getName();
 		$username=strtolower($username);
 		$args=explode(" ",substr($event->getMessage(),1));
-		$this->console->sendMessage(TextFormat::YELLOW.$player->getName()."‚ªg—p‚µ‚½ƒRƒ}ƒ“ƒh:".TextFormat::MAGENTA.$event->getMessage());
+		$this->console->sendMessage(TextFormat::YELLOW.$player->getName()."ãŒä½¿ç”¨ã—ãŸã‚³ãƒãƒ³ãƒ‰:".TextFormat::MAGENTA.$event->getMessage());
 		switch($args[0]){
 		case "stop":
 			if(array_key_exists($username,$this->usudoer)){
