@@ -1,5 +1,4 @@
 ﻿<?php
-
 namespace _64FF00\xSudo;
 
 use pocketmine\plugin\PluginBase;
