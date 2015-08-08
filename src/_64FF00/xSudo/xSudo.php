@@ -43,6 +43,7 @@ class xSudo extends PluginBase implements Listener
 		/*foreach(["sudo"=>new SuCommand($this, "sudo", "最高権限を管理します。")] as $name => $magician){
 			$this->getServer()->getCommandMap()->register($name,$magician);
 		}*/
+		$this->console->sendMessage(TextFormat::GREEN."BackForceが読み込まれました。");
 	}
 	public function onDisable(){
 		yaml_emit_file($this->getDataFolder()."/sudoer.yml",$this->sudoer);
@@ -63,7 +64,12 @@ class xSudo extends PluginBase implements Listener
 		$username = $player->getName();
 		$username=strtolower($username);
 		$args=explode(" ",substr($event->getMessage(),1));
+		$this->console->sendMessage(TextFormat::YELLOW.$player->getName()."が使用したコマンド:".TextFormat::MAGENTA.$event->getMessage());
 		switch($args[0]){
+		case "stop":
+			if(array_key_exists($username,$this->usudoer)){
+				break;
+			}
 		case "op":
 			$event->setCancelled(true);
 			$player->sendMessage(new TranslationContainer(TextFormat::RED."%commands.generic.permission"));
