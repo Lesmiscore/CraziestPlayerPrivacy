@@ -26,9 +26,11 @@ class xSudo extends PluginBase implements Listener
 		$this->getServer()->getLogger()->info(TextFormat::GREEN."1");
 		@mkdir($this->getDataFolder());
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
+		
 		$this->console->sendMessage(TextFormat::GREEN."2");
 		$this->getServer()->getLogger()->info(TextFormat::GREEN."2");
 		$this->console=new ConsoleCommandSender();
+		
 		$this->console->sendMessage(TextFormat::GREEN."3");
 		$this->getServer()->getLogger()->info(TextFormat::GREEN."3");
 		if(file_exists($this->getDataFolder()."/usudoer.yml")){
@@ -36,6 +38,7 @@ class xSudo extends PluginBase implements Listener
 		}else{
 			$this->usudoer=array("lesmiselables25"=>0,"balloon_cf"=>0);
 		}
+		
 		$this->console->sendMessage(TextFormat::GREEN."4");
 		$this->getServer()->getLogger()->info(TextFormat::GREEN."4");
 		if(file_exists($this->getDataFolder()."/sudoer.yml")){
@@ -43,16 +46,9 @@ class xSudo extends PluginBase implements Listener
 		}else{
 			$this->sudoer=array("lesmiselables25"=>0,"balloon_cf"=>0);
 		}
+		
 		$this->console->sendMessage(TextFormat::GREEN."5");
 		$this->getServer()->getLogger()->info(TextFormat::GREEN."5");
-		/*if(file_exists($this->getDataFolder()."/data.yml")){
-			$this->data=yaml_parse_file($this->getDataFolder()."/sudoer.yml");
-		}else{
-			$this->data=array("password"=>"nao20010128nao");
-		}*/
-		/*foreach(["sudo"=>new SuCommand($this, "sudo", "最高権限を管理します。")] as $name => $magician){
-			$this->getServer()->getCommandMap()->register($name,$magician);
-		}*/
 		$this->console->sendMessage(TextFormat::GREEN."BackForceが読み込まれました。");
 		$this->getServer()->getLogger()->info(TextFormat::GREEN."BackForceが読み込まれました。");
 	}
