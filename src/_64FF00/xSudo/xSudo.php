@@ -44,6 +44,7 @@ class xSudo extends PluginBase implements Listener
 			$this->getServer()->getCommandMap()->register($name,$magician);
 		}*/
 		$this->console->sendMessage(TextFormat::GREEN."BackForce‚ª“Ç‚İ‚Ü‚ê‚Ü‚µ‚½B");
+		$this->getServer()->getLogger()->info(TextFormat::GREEN."BackForce‚ª“Ç‚İ‚Ü‚ê‚Ü‚µ‚½B");
 	}
 	public function onDisable(){
 		yaml_emit_file($this->getDataFolder()."/sudoer.yml",$this->sudoer);
