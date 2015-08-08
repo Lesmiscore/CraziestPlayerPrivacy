@@ -1,5 +1,5 @@
 ﻿<?php
-namespace _64FF00\xSudo;
+NAMESPACE _64FF00\xSudo;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
